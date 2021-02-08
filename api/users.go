@@ -1,4 +1,4 @@
-package handler
+package apihandler
 
 import (
 	"fmt"
@@ -138,8 +138,7 @@ func createUsersHandler(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
-// Handler is to be exported
-func Handler() {
+func ApiHandler() {
 
 	handler := &RegexpHandler{}
 
