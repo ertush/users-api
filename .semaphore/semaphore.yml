@@ -16,7 +16,7 @@ blocks:
             - export GOPATH=~/go
             - 'export PATH=/home/semaphore/go/bin:$PATH'
             - checkout
-            - go build users.go 
+            - go build api/users.go 
            
  - name: Run with Go 1.15
    task:
@@ -25,6 +25,6 @@ blocks:
           commands:
             - checkout
             - sem-version go 1.15
-            - echo "user api is running"
+            - echo "users api can be run by executing go run api/users.go"
             
 
