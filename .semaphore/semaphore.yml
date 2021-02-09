@@ -23,7 +23,7 @@ blocks:
       jobs:
         - name: Install ngrok 
           commands:
-            - npm i -g ngrok
+            - apt-get install ngrok
             - ngrok -log=stdout 80 > ngrok.log &
             - curl http://127.0.0.1:4040/api/tunnels > url.conf
             - artifact push job url.conf
