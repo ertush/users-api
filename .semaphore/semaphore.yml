@@ -17,8 +17,7 @@ blocks:
             - 'export PATH=/home/semaphore/go/bin:$PATH'
             - checkout
             - go build users.go
-            - ./users
-
+           
  - name: Run with Go 1.15
    task:
       jobs:
