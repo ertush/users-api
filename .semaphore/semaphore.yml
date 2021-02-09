@@ -1,0 +1,26 @@
+version: v1.0
+name: A User API with Semaphore 2.0
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+
+blocks:
+ - name: Build with default Go version
+   task:
+      jobs:
+        - name: Build and Execute hw.go 
+          commands:
+            - checkout
+            - go build users.go
+            - ./users
+
+ - name: Run with Go 1.15
+   task:
+      jobs:
+        - name: Run users.go 
+          commands:
+            - checkout
+            - sem-version go 1.15
+            - go run users.go
+
