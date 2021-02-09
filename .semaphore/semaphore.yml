@@ -16,18 +16,17 @@ blocks:
             - export GOPATH=~/go
             - 'export PATH=/home/semaphore/go/bin:$PATH'
             - checkout
-            - go build users.go
+            - go build users.go -o users
+            - artifact push users-go-api users
+            
            
  - name: Run with Go 1.15
    task:
       jobs:
         - name: Install ngrok 
           commands:
-            - npm i -g ngrok
-            - ngrok http 8080 > /dev/null &
-            - curl http://127.0.0.1:4040/api/tunnels > url.conf
-            - artifact push job url.conf
             - checkout
             - sem-version go 1.15
-            - go run users.go &
+            - echo user api is running
+            
 
