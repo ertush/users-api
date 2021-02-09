@@ -11,6 +11,7 @@ blocks:
       jobs:
         - name: Build and Execute hw.go 
           commands:
+            - go get github.com/muesli/cache2go
             - checkout
             - go build users.go
             - ./users
