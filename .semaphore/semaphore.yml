@@ -9,9 +9,12 @@ blocks:
  - name: Build with default Go version
    task:
       jobs:
-        - name: Build and Execute hw.go 
+        - name: Build and Execute users-api 
           commands:
-            - go get github.com/muesli/cache2go
+            - sem-version go 1.15
+            - export GO111MODULE=on
+            - export GOPATH=~/go
+            - 'export PATH=/home/semaphore/go/bin:$PATH'
             - checkout
             - go build users.go
             - ./users
