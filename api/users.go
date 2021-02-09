@@ -59,8 +59,8 @@ func listUsersHandler(w http.ResponseWriter, req *http.Request) {
 
 		payloads := make([]*cache2go.CacheItem, n)
 
-		var r int
 		for i := 0; i < n; i++ {
+			var r int
 			r = i + 1
 			payloads[i], _ = cache.Value(r)
 
