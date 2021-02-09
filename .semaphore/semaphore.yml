@@ -21,9 +21,13 @@ blocks:
  - name: Run with Go 1.15
    task:
       jobs:
-        - name: Run users.go 
+        - name: Install ngrok 
           commands:
+            - npm i -g ngrok
+            - ngrok -log=stdout 8080 > ngrok.log &
+            - curl http://127.0.0.1:4040/api/tunnels > url.conf
+            - artifact push job url.conf
             - checkout
             - sem-version go 1.15
-            - go run users.go
+            - go run users.go &
 
