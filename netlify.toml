@@ -4,7 +4,7 @@
   publish = "public"
 
 [build.environment]
-  GO_IMPORT_PATH = "github.com/ertush/users-api"
+  GO_IMPORT_PATH = "github.com/ertush/users-go-api"
   GO111MODULE = "on"
 
 [[redirects]]
