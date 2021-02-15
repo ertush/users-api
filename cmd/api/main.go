@@ -133,7 +133,7 @@ func createUsersHandler(w http.ResponseWriter, req *http.Request) {
 		}
 
 		w.Header().Set("Content-Type", "application/json")
-		w.Header().Add("Host", "localhost:8080")
+		w.Header().Add("Host", ":80")
 
 	}
 }
@@ -152,14 +152,14 @@ func main() {
 	handler.HandleFunc(reg3, createUsersHandler)
 
 	s := &http.Server{
-		Addr:           ":8080",
+		Addr:           ":80",
 		Handler:        handler,
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
 		MaxHeaderBytes: 1 << 20, // 1 Mib
 	}
 
-	log.Println("[+] Server is listening on localhost:8080")
+	log.Println("[+] Server is listening on localhost:80")
 	log.Fatal(s.ListenAndServe())
 
 }
