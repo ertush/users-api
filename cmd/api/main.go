@@ -152,7 +152,7 @@ func main() {
 	handler.HandleFunc(reg3, createUsersHandler)
 
 	s := &http.Server{
-		Addr:           ":80",
+		Addr:           "",
 		Handler:        handler,
 		ReadTimeout:    10 * time.Second,
 		WriteTimeout:   10 * time.Second,
