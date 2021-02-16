@@ -64,7 +64,7 @@ func listUsersHandler(w http.ResponseWriter, req *http.Request) {
 	if req.Method == http.MethodGet {
 
 		w.Header().Set("Content-Type", "application/json")
-		w.Header().Add("Host", "localhost:8080")
+		w.Header().Add("port", GetPort())
 
 		n := cache.Count()
 
